@@ -60,3 +60,75 @@ window.addEventListener('scroll', () => {
         navbar.style.backdropFilter = 'none';
     }
 });
+
+// Modal functionality for photo gallery
+let currentImageIndex = 0;
+let galleryImages = [];
+
+function openModal(imgElement) {
+    const modal = document.getElementById('photoModal');
+    const modalImg = document.getElementById('modalImage');
+    
+    // Get all gallery images
+    galleryImages = Array.from(document.querySelectorAll('.gallery-photo'));
+    currentImageIndex = galleryImages.indexOf(imgElement);
+    
+    modal.style.display = 'block';
+    modalImg.src = imgElement.src;
+    modalImg.alt = imgElement.alt;
+    
+    // Prevent body scrolling when modal is open
+    document.body.style.overflow = 'hidden';
+}
+
+function closeModal() {
+    const modal = document.getElementById('photoModal');
+    modal.style.display = 'none';
+    document.body.style.overflow = 'auto';
+}
+
+function previousImage() {
+    if (currentImageIndex > 0) {
+        currentImageIndex--;
+    } else {
+        currentImageIndex = galleryImages.length - 1;
+    }
+    updateModalImage();
+}
+
+function nextImage() {
+    if (currentImageIndex < galleryImages.length - 1) {
+        currentImageIndex++;
+    } else {
+        currentImageIndex = 0;
+    }
+    updateModalImage();
+}
+
+function updateModalImage() {
+    const modalImg = document.getElementById('modalImage');
+    modalImg.src = galleryImages[currentImageIndex].src;
+    modalImg.alt = galleryImages[currentImageIndex].alt;
+}
+
+// Close modal when clicking outside the image
+window.onclick = function(event) {
+    const modal = document.getElementById('photoModal');
+    if (event.target === modal) {
+        closeModal();
+    }
+}
+
+// Keyboard navigation for modal
+document.addEventListener('keydown', function(event) {
+    const modal = document.getElementById('photoModal');
+    if (modal.style.display === 'block') {
+        if (event.key === 'Escape') {
+            closeModal();
+        } else if (event.key === 'ArrowLeft') {
+            previousImage();
+        } else if (event.key === 'ArrowRight') {
+            nextImage();
+        }
+    }
+});
