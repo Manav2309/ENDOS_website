@@ -37,6 +37,10 @@ body {
     height: 70px;
 }
 
+.nav-logo a {
+    text-decoration: none;
+}
+
 .nav-logo span {
     font-size: 24px;
     font-weight: bold;
@@ -58,6 +62,20 @@ body {
 
 .nav-link:hover {
     color: #2c5aa0;
+}
+
+.nav-new {
+    display: inline-block;
+    margin-left: 8px;
+    padding: 2px 8px;
+    border-radius: 999px;
+    background: #dc3545;
+    color: #fff;
+    font-size: 0.75rem;
+    font-weight: 800;
+    letter-spacing: 0.03em;
+    text-transform: uppercase;
+    vertical-align: middle;
 }
 
 .hamburger {
@@ -84,7 +102,7 @@ body {
 .hero-title {
     font-size: 2.5rem;
     color: #2c5aa0;
-    margin-bottom: 30px;
+    margin-bottom: 20px;
     font-weight: 700;
     line-height: 1.2;
 }
@@ -103,6 +121,10 @@ body {
     margin: 40px 0;
 }
 
+.logo-container a {
+    text-decoration: none;
+}
+
 .logo {
     max-width: 300px;
     height: auto;
@@ -112,17 +134,74 @@ body {
 
 /* Section Titles */
 .section-title {
-    font-size: 2.2rem;
+    font-size: 2.5rem;
     color: #2c5aa0;
     text-align: center;
-    margin-bottom: 50px;
-    font-weight: 600;
+    margin-bottom: 20px;
+    font-weight: 700;
 }
 
 /* About Section */
 .about {
     padding: 80px 0;
     background-color: #fff;
+}
+
+.announcement {
+    padding: 25px 0;
+    background-color: #fff;
+}
+
+.announcement-link {
+    display: flex;
+    gap: 14px;
+    align-items: center;
+    text-decoration: none;
+    padding: 16px 18px;
+    border-radius: 14px;
+    background: #f3f7ff;
+    border: 1px solid #dbe8ff;
+    box-shadow: 0 5px 20px rgba(0, 0, 0, 0.06);
+}
+
+.announcement-link:hover {
+    border-color: #bcd4ff;
+}
+
+.announcement-badge {
+    background: #dc3545;
+    color: #fff;
+    padding: 6px 10px;
+    border-radius: 999px;
+    font-size: 0.85rem;
+    font-weight: 700;
+    letter-spacing: 0.02em;
+    text-transform: uppercase;
+}
+
+.announcement-text {
+    flex: 1;
+    color: #1f2d3d;
+    font-size: 1.05rem;
+    line-height: 1.4;
+}
+
+.announcement-cta {
+    color: #2c5aa0;
+    font-weight: 700;
+    white-space: nowrap;
+}
+
+@media screen and (max-width: 768px) {
+    .announcement-link {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+
+    .announcement-cta {
+        width: 100%;
+        text-align: right;
+    }
 }
 
 .about-content {
@@ -135,6 +214,89 @@ body {
     font-size: 1.2rem;
     line-height: 1.8;
     color: #555;
+}
+
+/* ENDO-CONNECT Page */
+.event-page {
+    padding: 120px 0 80px;
+    background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%);
+    min-height: 100vh;
+}
+
+.event-content {
+    max-width: 920px;
+    margin: 30px auto 0;
+}
+
+.event-section-title {
+    font-size: 1.6rem;
+    color: #2c5aa0;
+    font-weight: 800;
+    margin: 26px 0 12px;
+}
+
+.event-subsection-title {
+    font-size: 1.25rem;
+    color: #2c5aa0;
+    font-weight: 700;
+    margin: 18px 0 10px;
+}
+
+.event {
+    padding: 80px 0;
+    background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%);
+}
+
+.event-subtitle {
+    text-align: center;
+    font-size: 1.15rem;
+    color: #555;
+    max-width: 900px;
+    margin: 0 auto 35px;
+    line-height: 1.7;
+}
+
+.info-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 25px;
+}
+
+.info-card {
+    background: #fff;
+    padding: 25px;
+    border-radius: 15px;
+    box-shadow: 0 5px 20px rgba(0, 0, 0, 0.08);
+}
+
+.info-card h3 {
+    font-size: 1.25rem;
+    margin-bottom: 12px;
+    color: #2c5aa0;
+    font-weight: 600;
+}
+
+.info-list {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+}
+
+.info-list li {
+    padding: 10px 0;
+    font-size: 1.05rem;
+    color: #555;
+    border-bottom: 1px solid #eee;
+    line-height: 1.5;
+}
+
+.info-list li:last-child {
+    border-bottom: none;
+}
+
+.event-cta {
+    text-align: center;
+    margin-top: 30px;
 }
 
 /* Members Section */
@@ -345,7 +507,7 @@ body {
 }
 
 @media screen and (max-width: 480px) {
-    .hero-title {
+    .hero-title, .section-title {
         font-size: 1.6rem;
     }
 
@@ -658,9 +820,11 @@ body {
 
 .preview-subtitle {
     text-align: center;
-    font-size: 1.1rem;
-    color: #666;
-    margin-bottom: 40px;
+    font-size: 1.2rem;
+    color: #555;
+    max-width: 800px;
+    margin: 0 auto 50px;
+    line-height: 1.6;
 }
 
 .preview-gallery {
@@ -736,6 +900,107 @@ body {
 
 .btn-primary:hover {
     background: #0056b3;
+}
+
+.btn-secondary {
+    display: inline-block;
+    padding: 12px 30px;
+    background: transparent;
+    color: #2c5aa0;
+    text-decoration: none;
+    border-radius: 25px;
+    font-weight: bold;
+    border: 2px solid #2c5aa0;
+    transition: background 0.3s ease, color 0.3s ease;
+}
+
+.btn-secondary:hover {
+    background: #2c5aa0;
+    color: #fff;
+}
+
+.is-hidden {
+    display: none !important;
+}
+
+.floating-notice {
+    position: fixed;
+    right: 18px;
+    bottom: 18px;
+    z-index: 2000;
+    width: min(360px, calc(100% - 36px));
+    background: #fff;
+    border-radius: 16px;
+    padding: 16px;
+    box-shadow: 0 18px 45px rgba(0, 0, 0, 0.22);
+    border: 1px solid rgba(44, 90, 160, 0.18);
+}
+
+.floating-notice-close {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    width: 36px;
+    height: 36px;
+    border-radius: 50%;
+    border: none;
+    background: #f3f4f6;
+    color: #111;
+    font-size: 22px;
+    line-height: 1;
+    cursor: pointer;
+}
+
+.floating-notice-close:hover {
+    background: #e5e7eb;
+}
+
+.floating-notice-badge {
+    display: inline-block;
+    background: #dc3545;
+    color: #fff;
+    font-weight: 800;
+    text-transform: uppercase;
+    letter-spacing: 0.03em;
+    font-size: 0.75rem;
+    padding: 5px 9px;
+    border-radius: 999px;
+}
+
+.floating-notice-title {
+    margin-top: 10px;
+    padding-right: 40px;
+    font-size: 1.2rem;
+    color: #2c5aa0;
+    font-weight: 800;
+    line-height: 1.25;
+}
+
+.floating-notice-text {
+    margin-top: 8px;
+    color: #555;
+    font-size: 1rem;
+    line-height: 1.45;
+}
+
+.floating-notice-actions {
+    margin-top: 12px;
+    display: flex;
+    gap: 10px;
+    flex-wrap: wrap;
+}
+
+.floating-notice-actions .btn-primary,
+.floating-notice-actions .btn-secondary {
+    padding: 10px 18px;
+}
+
+@media (max-width: 480px) {
+    .floating-notice {
+        right: 12px;
+        bottom: 12px;
+        width: calc(100% - 24px);
+    }
 }
 
 /* Previous Meetings Gallery */

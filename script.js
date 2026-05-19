@@ -68,21 +68,28 @@ let galleryImages = [];
 function openModal(imgElement) {
     const modal = document.getElementById('photoModal');
     const modalImg = document.getElementById('modalImage');
-    
-    // Get all gallery images
+
+    if (!modal || !modalImg) {
+        return;
+    }
+
     galleryImages = Array.from(document.querySelectorAll('.gallery-photo'));
     currentImageIndex = galleryImages.indexOf(imgElement);
-    
+
     modal.style.display = 'block';
     modalImg.src = imgElement.src;
     modalImg.alt = imgElement.alt;
-    
-    // Prevent body scrolling when modal is open
+
     document.body.style.overflow = 'hidden';
 }
 
 function closeModal() {
     const modal = document.getElementById('photoModal');
+
+    if (!modal) {
+        return;
+    }
+
     modal.style.display = 'none';
     document.body.style.overflow = 'auto';
 }
@@ -114,7 +121,8 @@ function updateModalImage() {
 // Close modal when clicking outside the image
 window.onclick = function(event) {
     const modal = document.getElementById('photoModal');
-    if (event.target === modal) {
+
+    if (modal && event.target === modal) {
         closeModal();
     }
 }
@@ -122,7 +130,8 @@ window.onclick = function(event) {
 // Keyboard navigation for modal
 document.addEventListener('keydown', function(event) {
     const modal = document.getElementById('photoModal');
-    if (modal.style.display === 'block') {
+
+    if (modal && modal.style.display === 'block') {
         if (event.key === 'Escape') {
             closeModal();
         } else if (event.key === 'ArrowLeft') {
@@ -132,3 +141,32 @@ document.addEventListener('keydown', function(event) {
         }
     }
 });
+
+const eventNotice = document.getElementById('eventNotice');
+const eventNoticeClose = document.getElementById('eventNoticeClose');
+const eventNoticeDismissKey = 'endos_event_notice_dismissed';
+
+if (eventNotice) {
+    let dismissed = false;
+
+    try {
+        dismissed = localStorage.getItem(eventNoticeDismissKey) === '1';
+    } catch (e) {
+        dismissed = false;
+    }
+
+    if (dismissed) {
+        eventNotice.classList.add('is-hidden');
+    }
+
+    if (eventNoticeClose) {
+        eventNoticeClose.addEventListener('click', () => {
+            eventNotice.classList.add('is-hidden');
+
+            try {
+                localStorage.setItem(eventNoticeDismissKey, '1');
+            } catch (e) {
+            }
+        });
+    }
+}
