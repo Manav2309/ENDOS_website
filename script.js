@@ -144,7 +144,7 @@ document.addEventListener('keydown', function(event) {
 
 const eventNotice = document.getElementById('eventNotice');
 const eventNoticeClose = document.getElementById('eventNoticeClose');
-const eventNoticeDismissKey = 'endos_event_notice_dismissed';
+const eventNoticeDismissKey = 'endos_event_notice_dismissed_v2';
 
 if (eventNotice) {
     let dismissed = false;
